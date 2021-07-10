@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var postRouter = require('./routes/posts');
+var conversationRouter = require('./routes/conversation');
+var messageRouter = require('./routes/messages');
 var cors = require('cors')
 
 mongoose.connect('mongodb://localhost:27017/social-app', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true})
@@ -51,6 +53,8 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postRouter);
+app.use('/api/conversations', conversationRouter);
+app.use('/api/messages', messageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
